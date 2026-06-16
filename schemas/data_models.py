@@ -30,3 +30,6 @@ class SecurityAnomaly(BaseModel):
     violating_event: LogEvent = Field(..., description="The specific kinetic log event that triggered the anomaly")
     topological_conflict: str = Field(..., description="Detailed explanation of why this event violates the established static network topology")
     remediation_suggestion: str = Field(..., description="Actionable architectural or firewall rule advice to mitigate the flaw")
+    
+class AnomalyReport(BaseModel):
+    anomalies: List[SecurityAnomaly] = Field(..., description="A comprehensive list of all detected security violations.")
